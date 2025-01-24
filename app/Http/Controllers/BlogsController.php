@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Blog;
+use App\Models\Category;
 use App\Models\MyBlog;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -196,7 +197,14 @@ class BlogsController extends Controller
     }
     
     public function viewBlogs() {
-        return view('common.blogsPage');
+
+        $categories = Category::all();
+
+        $blogs = Blog::with('category')
+                ->orderBy('created_at', 'DESC')
+                ->get();
+
+        return view('common.blogsPage', compact('categories', 'blogs'));
     }
-    
+
 }

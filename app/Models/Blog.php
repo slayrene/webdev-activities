@@ -11,6 +11,11 @@ class Blog extends Model
     use HasFactory;
     use SoftDeletes;
 
-    protected $guarded = ['description'];
-    protected $hidden = ['description'];
+    // protected $guarded = ['description'];
+    // protected $hidden = ['description'];
+
+    public function category(){
+        return $this->hasOne(Category::class, 'id', 'category_id');
+    }
+
 }

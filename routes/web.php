@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Blogs2Controller;
 use App\Http\Controllers\BlogsController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
@@ -157,16 +158,16 @@ Route::group(['prefix' => 'admin'], function(){
     Route::get('insertUsingModel', [BlogsController::class, 'insertUsingModel'])->name('insertUsingModel');
 
     
-    Route::get('modelSamples/{id}/{title}', [BlogsController::class, 'modelSamples'])->name('modelSamples');
+    Route::get('/modelSamples/{id}/{title}', [BlogsController::class, 'modelSamples'])->name('modelSamples');
 
     // Activity 4!
-    Route::get('blogsPage', [BlogsController::class, 'viewBlogs'])->name('blogsPage');
+    Route::get('/blogsPage', [BlogsController::class, 'viewBlogs'])->name('blogsPage');
 
 
-    // Route::get('/blogsPage', function () {
-    //     return view('blogsPage');
-    // });
-    
+    // Thursday F2F Model Controller 
+    Route::get('/data', [Blogs2Controller::class, 'data'])->name('blog.get');
+    Route::post('/blogsPage', [Blogs2Controller::class, 'blogCreate'])->name('blog.create');
+
 
 Route::fallback(function() {
     // return response()->file(public_path('image1.png'));
