@@ -168,9 +168,14 @@ Route::group(['prefix' => 'admin'], function(){
     Route::get('/data', [Blogs2Controller::class, 'data'])->name('blog.get');
     Route::post('/blogsPage', [Blogs2Controller::class, 'blogCreate'])->name('blog.create');
 
-
 Route::fallback(function() {
     // return response()->file(public_path('image1.png'));
     // return "<div style='text-align: center;'> <img src='" . asset('image1.png') . "'>";
     return redirect()->route('home');
 }); 
+
+// LAST F2F ACTIVITY HUHUHU
+Route::group(['middleware' => 'guest', 'prefix' => '/'], function () {
+    Route::get('/register', [LoginController::class, 'register'])->name('register');
+    Route::post('/register', [LoginController::class, 'registerPost'])->name('register.post');
+});    
