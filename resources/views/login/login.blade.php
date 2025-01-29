@@ -11,9 +11,9 @@
         <!-- Scripts -->
         @vite(['resources/sass/app.scss', 'resources/js/app.js'])
     </head>
-    <body class = "bg-primary-subtle">
-    <div class="bg-image" style="background-image: url('https://storage.needpix.com/rsynced_images/mountains-wallpaper.jpg'); height: 100vh; width: 100%; background-size: cover">
-            <div class="container position-absolute top-50 start-50 translate-middle w-25 border border-black mx-auto rounded-4 bg-info-subtle">
+    <body class = "bg-primary-subtle" >
+    <div class="bg-image" style="background-image: url('https://i.pinimg.com/originals/8a/e1/04/8ae104a88d8fd8e5c4d1a9cbea4d4c96.gif'); height: 100vh; width: 100%; background-size: cover">
+            <div class="container position-absolute top-50 start-50 translate-middle w-25 border border-black mx-auto rounded-4 bg-danger">
 
                 @if($errors->any())
                     @foreach($errors->all() as $error)
@@ -38,7 +38,7 @@
                             <input class="form-check-input" type="checkbox" id="rememberMe">
                             <label label class="form-check-label mb-3" for="rememberMe"> Remember me </label>
 
-                            <button type="submit" class="btn btn-primary mt-2 mb-3 w-100">Login</button>
+                            <button type="submit" class="btn btn-warning mt-2 mb-3 w-100">Login</button>
                             <h7 class = "text-center mb-4">Forgot Password?</h7>
                         </div>
                     </div>

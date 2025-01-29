@@ -6,9 +6,9 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 
 Route::group(['prefix' => 'admin'], function(){
@@ -174,8 +174,25 @@ Route::fallback(function() {
     return redirect()->route('home');
 }); 
 
-// LAST F2F ACTIVITY HUHUHU
-Route::group(['middleware' => 'guest', 'prefix' => '/'], function () {
+
+// Last Activity! 
+Route::group(['middleware' => 'guest', 'prefix' => '/'], function(){
+
     Route::get('/register', [LoginController::class, 'register'])->name('register');
-    Route::post('/register', [LoginController::class, 'registerPost'])->name('register.post');
-});    
+    Route::post('/register', [LoginController::class, 'registerPost'])->name('register.create');
+
+    Route::get('/login', [LoginController::class, 'login'])->name('login');
+    Route::post('/login', [LoginController::class, 'loginPost'])->name('login.submit');
+
+});
+
+Route::group(['prefix' => 'blog', 'middleware' => ['custom.auth']], function() {
+    Route::get('/blogsPage', [BlogsController::class, 'viewBlogs'])->name('blogData');
+    Route::post('/create', [Blogs2Controller::class, 'blogCreate'])->name('blog.create');
+});
+
+
+Route::group(['middleware' => ['custom.auth']], function() {
+
+    Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
+});
