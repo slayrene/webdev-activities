@@ -21,14 +21,14 @@
               @csrf
               <div class="mb-4">
                 <label for="username" class="form-label">Username/Email</label>
-                <input type="text" class="form-control" id="username" name = "username" />
+                <input type="text" class="form-control" id="username" name ="username" />
               </div>
               <div class="mb-4">
                 <label for="password" class="form-label">Password</label>
-                <input type="password" class="form-control" id="password" name = "password"/>
+                <input type="password" class="form-control" id="password" name ="password"/>
               </div>
               <div class="mb-4">
-                <input type="checkbox" class="form-check-input" id="remember" name = "remember" />
+                <input type="checkbox" class="form-check-input" id="remember" name ="remember" />
                 <label for="remember" class="form-label">Remember Me</label>
               </div>
               <div class="d-grid">

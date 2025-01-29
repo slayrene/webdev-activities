@@ -64,6 +64,7 @@ class LoginController extends Controller
         });        
         return $response;
     }
+    
     public function registerPost(Request $request) {
 
         $user = new User();
@@ -119,9 +120,8 @@ class LoginController extends Controller
             $request->session()->invalidate();
             $request->session()->regenerateToken();
 
-            redirect()->route('login');
+            return redirect()->route('login');
         // }
-            return redirect()->route('blogData');
     }
 
 }

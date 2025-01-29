@@ -60,6 +60,9 @@
                 </tbody>
             </table>
         </div>
+        <form id="logout-form" action="{{ route('logout') }}" method="GET">
+            <button type="submit" class="btn btn-danger m-3">Logout</button>
+        </form>
     </div>
     @endsection
 </body>

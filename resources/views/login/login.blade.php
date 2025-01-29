@@ -35,8 +35,8 @@
                             <label for="inputPassword5" class="form-label mt-3">Password</label>
                             <input name = "password" type="password" id="inputPassword5" class="form-control mb-2" aria-describedby="passwordHelpBlock">
 
-                            <input class="form-check-input" type="checkbox" id="rememberMe">
-                            <label label class="form-check-label mb-3" for="rememberMe"> Remember me </label>
+                            <input class="form-check-input" type="checkbox" id="remember" name="remember">
+                            <label class="form-check-label mb-3" for="remember"> Remember me </label>
 
                             <button type="submit" class="btn btn-warning mt-2 mb-3 w-100">Login</button>
                             <h7 class = "text-center mb-4">Forgot Password?</h7>

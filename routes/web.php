@@ -160,19 +160,19 @@ Route::group(['prefix' => 'admin'], function(){
     
     Route::get('/modelSamples/{id}/{title}', [BlogsController::class, 'modelSamples'])->name('modelSamples');
 
-    // Activity 4!
-    Route::get('/blogsPage', [BlogsController::class, 'viewBlogs'])->name('blogsPage');
+    // // Activity 4!
+    // Route::get('/blogsPage', [BlogsController::class, 'viewBlogs'])->name('blogsPage');
 
 
     // Thursday F2F Model Controller 
     Route::get('/data', [Blogs2Controller::class, 'data'])->name('blog.get');
-    Route::post('/blogsPage', [Blogs2Controller::class, 'blogCreate'])->name('blog.create');
+    // Route::post('/blogsPage', [Blogs2Controller::class, 'blogCreate'])->name('blog.create');
 
-Route::fallback(function() {
-    // return response()->file(public_path('image1.png'));
-    // return "<div style='text-align: center;'> <img src='" . asset('image1.png') . "'>";
-    return redirect()->route('home');
-}); 
+// Route::fallback(function() {
+//     // return response()->file(public_path('image1.png'));
+//     // return "<div style='text-align: center;'> <img src='" . asset('image1.png') . "'>";
+//     // return redirect()->route('home');
+// }); 
 
 
 // Last Activity! 
@@ -186,13 +186,13 @@ Route::group(['middleware' => 'guest', 'prefix' => '/'], function(){
 
 });
 
-Route::group(['prefix' => 'blog', 'middleware' => ['custom.auth']], function() {
-    Route::get('/blogsPage', [BlogsController::class, 'viewBlogs'])->name('blogData');
-    Route::post('/create', [Blogs2Controller::class, 'blogCreate'])->name('blog.create');
-});
-
-
 Route::group(['middleware' => ['custom.auth']], function() {
 
     Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
+});
+
+Route::group(['prefix' => 'blog', 'middleware' => 'custom.auth'], function() {
+
+    Route::get('blogsPage', [BlogsController::class, 'viewBlogs'])->name('blogData');
+    Route::post('blogsPage', [BlogsController::class, 'blogCreate'])->name('blog.create');
 });
